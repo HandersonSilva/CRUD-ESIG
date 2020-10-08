@@ -31,4 +31,4 @@ Crie um banco de dados no mysql e utilize o Arquivo .env.example para configura-
 
 ## Funcionamento do projeto
 
-## CRUD cliente finalizado.
+## CRUD TAREFAS finalizado.
