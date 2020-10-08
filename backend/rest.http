@@ -1,0 +1,32 @@
+###
+//INDEX
+GET http://localhost:8000/api/task
+
+###
+//GETLISTTASK done, unrealized, all
+GET http://localhost:8000/api/task/unrealized
+
+###
+//CADASTRAR
+POST http://localhost:8000/api/task
+content-type: application/json
+
+{
+    "description":"teste 7",
+    "done":false,
+    "filtro":"unrealized"
+}
+
+###
+//ATUALIZAR
+PUT http://localhost:8000/api/task/8
+content-type: application/json
+
+{
+    "done":true,
+    "filtro":"done"
+}
+
+###
+//DELETAR
+DELETE http://localhost:8000/api/task/4
