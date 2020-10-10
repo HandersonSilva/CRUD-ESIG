@@ -1,8 +1,0 @@
-{
-    "/backend": {
-        "target": "http://192.168.1.87:8000/backend",
-        "pathRewrite": {
-            "^/backend/": ""
-        }
-    }
-}

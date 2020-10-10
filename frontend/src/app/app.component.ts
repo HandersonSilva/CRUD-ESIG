@@ -1,48 +1,106 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EditComponent } from './edit/edit.component';
+import { MatTableDataSource } from '@angular/material/table';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen' },
-  { position: 2, name: 'Helium' },
-  { position: 3, name: 'Lithium' },
-  { position: 4, name: 'Beryllium' },
-  { position: 5, name: 'Boron' },
-  { position: 6, name: 'Carbon' },
-  { position: 7, name: 'Nitrogen' },
-  { position: 8, name: 'Oxygen' },
-  { position: 9, name: 'Fluorine' },
-  { position: 10, name: 'Neon' },
-];
+import { Task } from './task.model';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'frontend';
-  displayedColumns: string[] = ['check', 'name', 'edit', 'delete'];
-  dataSource = ELEMENT_DATA;
-  //panorama_fish_eye
+  displayedColumns: string[] = ['check', 'description', 'edit', 'delete'];
+  tasksList: Task[] = [];
+  task: Task;
+  dataSource: MatTableDataSource<Task>;
+  form: FormGroup;
+  filter = 'all';
 
-  constructor(private dialog: MatDialog) {}
+  constructor(
+    private _dialog: MatDialog,
+    private _appService: AppService,
+    private _formBuilder: FormBuilder
+  ) {
+    this.form = this._formBuilder.group({
+      description: [''],
+      done: false,
+    });
+  }
 
-  add() {
-    alert('adicionar tarefa');
+  ngOnInit() {
+    this.dataSource = new MatTableDataSource(this.tasksList);
+    this.list();
+  }
+
+  save() {
+    if (this.form.get('description').value === '') {
+      return;
+    }
+
+    this.task = this.form.getRawValue();
+    this.task.filter = this.filter;
+
+    this._appService.save(this.task).subscribe((response) => {
+      this.tasksList = response.data;
+      this.form.reset({ description: '', done: false });
+      this.updateTable();
+    });
+  }
+
+  list() {
+    this._appService.listFilter(this.filter).subscribe((response) => {
+      this.tasksList = response.data;
+      this.updateTable();
+    });
+  }
+
+  update(task: Task) {
+    task.done = true;
+    task.filter = this.filter;
+
+    this._appService.update(task).subscribe((response) => {
+      this.tasksList = response.data;
+      this.updateTable();
+    });
+  }
+
+  deleteTask(task: Task) {
+    this._appService.delete(task.id).subscribe((response) => {
+      this.list();
+    });
+  }
+
+  deleteTaskDone() {
+    this._appService.deleteTaskDone().subscribe((response) => {
+      this.list();
+    });
+  }
+
+  updateTable() {
+    this.dataSource.data = this.tasksList;
+  }
+
+  setFilter(filterList: string) {
+    this.filter = filterList;
+    this.list();
   }
 
   openDialogEdit(task): void {
-    const dialogRef = this.dialog.open(EditComponent, {
+    const dialogRef = this._dialog.open(EditComponent, {
       width: '450px',
       disableClose: true,
+      data: task,
     });
 
-    dialogRef.afterClosed().subscribe((result) => {});
+    dialogRef.afterClosed().subscribe((status) => {
+      if (status) {
+        this.list();
+      }
+    });
   }
 }

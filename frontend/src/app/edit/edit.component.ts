@@ -1,6 +1,9 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AppService } from '../app.service';
+
+import { Task } from '../task.model';
 
 @Component({
   selector: 'edit',
@@ -9,28 +12,45 @@ import { MatDialogRef } from '@angular/material/dialog';
   encapsulation: ViewEncapsulation.None,
 })
 export class EditComponent implements OnInit {
-  senhaForm: FormGroup;
-  senhaEnviada: boolean;
+  form: FormGroup;
+  task: Task;
 
   constructor(
     private _formBuilder: FormBuilder,
-    public dialogRef: MatDialogRef<EditComponent>
+    private _appService: AppService,
+    private _dialogRef: MatDialogRef<EditComponent>,
+    @Inject(MAT_DIALOG_DATA) data
   ) {
-    this.senhaForm = this._formBuilder.group({
-      task: ['', [Validators.required, Validators.email]],
+    console.log('data');
+    console.log(data);
+    if (data) {
+      this.task = data;
+    }
+
+    this.form = this._formBuilder.group({
+      id: '',
+      description: ['', Validators.required],
+      done: false,
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.form.patchValue(this.task);
+  }
 
   onSave() {
-    // this.loginServe
-    //   .recuperarSenha(this.senhaForm.value.email)
-    //   .subscribe((usuario) => {
-    //     this.senhaEnviada = true;
-    //   });
+    if (this.form.get('description').value === '') {
+      return;
+    }
+
+    this.task = this.form.getRawValue();
+
+    this._appService.update(this.task).subscribe((response) => {
+      this._dialogRef.close(true);
+    });
   }
+
   onCancel(): void {
-    this.dialogRef.close();
+    this._dialogRef.close(false);
   }
 }

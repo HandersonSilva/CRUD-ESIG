@@ -3,5 +3,5 @@ import { environment } from '../environments/environment';
 export class AppConstantes {
   static urlBase = environment.urlApi;
 
-  static urlBaseApi = AppConstantes.urlBase + '/api';
+  static urlBaseApi = AppConstantes.urlBase + '/index.php/api';
 }

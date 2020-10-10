@@ -1,14 +1,16 @@
 <div class="edit">
-  <form class="col-12">
+  <form name="form" [formGroup]="form" class="col-12">
     <h4 class="edit-title">Alterar Tarefa</h4>
     <mat-form-field class="col-12">
-      <input matInput placeholder="" value="" />
+      <input formControlName="description" matInput placeholder="" value="" />
     </mat-form-field>
     <div class="menu-filtro-edit">
       <button (click)="onCancel()" mat-stroked-button color="warn">
         Cancelar
       </button>
-      <button mat-stroked-button class="text-success">Salvar</button>
+      <button (click)="onSave()" mat-stroked-button class="text-success">
+        Salvar
+      </button>
     </div>
   </form>
 </div>

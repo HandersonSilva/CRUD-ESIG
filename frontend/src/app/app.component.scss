@@ -147,6 +147,12 @@ svg#clouds {
     min-width: 560px;
     background: #fff;
     color: #555;
+    form {
+      font-size: 22px;
+    }
+    .total {
+      color: #bbb5b5;
+    }
   }
   .title {
     color: rgb(55, 116, 162);
@@ -160,5 +166,18 @@ svg#clouds {
     button {
       margin-right: 5px;
     }
+  }
+  table {
+    border-top: 7px #5ea2e6 solid;
+    margin-bottom: 7px;
+    p {
+      font-size: 18px !important;
+      margin-top: -0.2em;
+    }
+  }
+
+  .task-done {
+    text-decoration: line-through;
+    color: #bbb5b5;
   }
 }

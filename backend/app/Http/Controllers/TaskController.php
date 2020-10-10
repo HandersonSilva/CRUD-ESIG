@@ -34,7 +34,7 @@ class TaskController extends Controller
             $task = Task::create($data);
 
             if ($task){
-                $tasks = $this->getTasks($data['filtro']);
+                $tasks = $this->getTasks($data['filter']);
 
                 return response()->json(['message' => 'Nova tarefa adicionada com sucesso','data'=>$tasks], 200);
             }
@@ -62,9 +62,9 @@ class TaskController extends Controller
             if ($task) {
                 $task->update($data);
 
-                $tasks = $this->getTasks($data['filtro']);
+                $tasks = isset($data['filter']) ? $this->getTasks($data['filter']) : [];
 
-                return response()->json(['message' => 'Tarefa atualizada','data'=>$tasks], 200);
+                return response()->json(['message' => 'Tarefa atualizada','data'=> $tasks], 200);
             }
 
             return response()->json(['message' =>"Tarefa não encontrada",'data'=>[]], 400);
@@ -98,25 +98,42 @@ class TaskController extends Controller
         }
     }
 
-    public function getListTask($filtro)
-    {
-           $tasks = $this->getTasks($filtro);
-           return response()->json(['message' => '','data' => $tasks], 200);
-    }
-
-    public function getTasks($filtro)
+    public function destroyTaskDone()
     {
         try{
 
-            switch($filtro){
+            $result = Task::where('done', true)->delete();
+
+            if($result){
+                return response()->json(['message' => 'Tarefas excluída com sucesso','data'=>[]], 200);
+            }
+
+            return response()->json(['message' =>"Erro ao excluír tarefas",'data'=>[]], 400);
+
+        }catch (Exception $e) {
+            return response()->json(['message' =>"Erro ao excluír a tarefa: {$e->getMessage()}",'data'=>[]], 400);
+        }
+    }
+
+    public function getListTask($filter)
+    {
+           $tasks = $this->getTasks($filter);
+           return response()->json(['message' => '','data' => $tasks], 200);
+    }
+
+    public function getTasks($filter)
+    {
+        try{
+
+            switch($filter){
                  case 'done':
-                     $tasks = Task::where('done', true)->orderBy('id','DESC')->get();
+                     $tasks = Task::where('done', true)->orderBy('id','DESC')->get()->toArray();
                  break;
                  case 'unrealized':
-                     $tasks = Task::where('done', false)->orderBy('id','DESC')->get();
+                     $tasks = Task::where('done', false)->orderBy('id','DESC')->get()->toArray();
                  break;
                  default:
-                     $tasks = Task::all()->sortByDesc('id')->toArray();
+                     $tasks =  Task::orderBy('id','DESC')->get()->toArray();
             }
  
          }catch (Exception $e) {

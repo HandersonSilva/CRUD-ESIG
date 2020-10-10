@@ -1,14 +1,14 @@
 ###
 //INDEX
-GET http://localhost:8000/api/task
+GET http://192.168.1.87:8000/backend/public/index.php/api/task
 
 ###
 //GETLISTTASK done, unrealized, all
-GET http://localhost:8000/api/task/unrealized
+GET http://192.168.1.87:8000/backend/public/index.php/api/task/unrealized
 
 ###
 //CADASTRAR
-POST http://localhost:8000/api/task
+POST http://192.168.1.87:8000/backend/public/index.php/api/task
 content-type: application/json
 
 {
@@ -19,7 +19,7 @@ content-type: application/json
 
 ###
 //ATUALIZAR
-PUT http://localhost:8000/api/task/8
+PUT http://192.168.1.87:8000/backend/public/index.php/api/task/8
 content-type: application/json
 
 {
@@ -29,4 +29,4 @@ content-type: application/json
 
 ###
 //DELETAR
-DELETE http://localhost:8000/api/task/4
+DELETE http://192.168.1.87:8000/backend/public/index.php/api/task/8

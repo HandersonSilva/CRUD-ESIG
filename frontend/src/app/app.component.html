@@ -30,43 +30,75 @@
 <div class="content" role="main">
   <h1 class="title">Lista de Tarefas</h1>
   <mat-card>
-    <form class="col-12">
+    <form name="form" [formGroup]="form" class="col-12">
       <mat-form-field class="col-12">
         <mat-label>Nova tarefa</mat-label>
         <input
-          (keyup.enter)="add()"
+          (keyup.enter)="save()"
           matInput
+          formControlName="description"
           placeholder="O que temos para fazer hoje?"
           value=""
         />
       </mat-form-field>
       <div class="menu-filtro">
-        <button mat-stroked-button>Todas</button>
-        <button mat-stroked-button color="primary">A fazer</button>
-        <button mat-stroked-button class="text-success">Feito</button>
-        <button mat-stroked-button color="warn">Excluir concluídas</button>
+        <button (click)="setFilter('all')" mat-stroked-button>Todas</button>
+        <button
+          (click)="setFilter('unrealized')"
+          mat-stroked-button
+          color="primary"
+        >
+          A fazer
+        </button>
+        <button
+          (click)="setFilter('done')"
+          mat-stroked-button
+          class="text-success"
+        >
+          Feito
+        </button>
+        <button (click)="deleteTaskDone()" mat-stroked-button color="warn">
+          Excluir concluídas
+        </button>
       </div>
     </form>
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z1 col-12">
+    <table
+      *ngIf="dataSource.data.length > 0"
+      mat-table
+      [dataSource]="dataSource"
+      class="mat-elevation-z1 col-12"
+    >
       <ng-container matColumnDef="check">
-        <td class="col-2" mat-cell *matCellDef="let element">
-          <mat-icon class="text-success" aria-hidden="false" aria-label=""
-            >check_circle_outline</mat-icon
+        <td class="col-2" mat-cell *matCellDef="let task">
+          <mat-icon
+            (click)="!task.done ? update(task) : null"
+            [class]="task.done ? 'text-success' : 'text-secondary'"
+            aria-hidden="false"
+            aria-label=""
+            >{{
+              task.done ? "check_circle_outline" : "panorama_fish_eye"
+            }}</mat-icon
           >
         </td>
       </ng-container>
 
-      <ng-container matColumnDef="name">
-        <td class="col-8" mat-cell *matCellDef="let element">
-          {{ element.name }}
+      <ng-container matColumnDef="description">
+        <td
+          class="col-8"
+          mat-cell
+          *matCellDef="let task"
+          [class.task-done]="task.done"
+        >
+          <p>{{ task.description }}</p>
         </td>
       </ng-container>
 
       <ng-container matColumnDef="edit">
-        <td class="col-1" mat-cell *matCellDef="let element">
+        <td class="col-1" mat-cell *matCellDef="let task">
           <mat-icon
-            (click)="openDialogEdit(element)"
+            *ngIf="!task.done"
+            (click)="openDialogEdit(task)"
             class="text-primary"
             aria-hidden="false"
             aria-label=""
@@ -76,15 +108,21 @@
       </ng-container>
 
       <ng-container matColumnDef="delete">
-        <td class="col-1" mat-cell *matCellDef="let element">
-          <mat-icon class="text-danger" aria-hidden="false" aria-label=""
+        <td class="col-1" mat-cell *matCellDef="let task">
+          <mat-icon
+            (click)="deleteTask(task)"
+            class="text-danger"
+            aria-hidden="false"
+            aria-label=""
             >clear</mat-icon
           >
         </td>
       </ng-container>
 
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <tr mat-row *matRowDef="let task; columns: displayedColumns"></tr>
     </table>
+    <mat-divider [vertical]="false"></mat-divider>
+    <label class="total">{{ dataSource.data.length + " Item" }}</label>
   </mat-card>
 
   <!-- Footer -->

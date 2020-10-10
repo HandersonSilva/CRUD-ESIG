@@ -18,3 +18,6 @@ Route::get('/', function () {
 Route::get('/task/{filtro}', 'TaskController@getListTask');
 
 Route::resource('/task', 'TaskController');
+
+Route::delete('/task-done', 'TaskController@destroyTaskDone');
+
