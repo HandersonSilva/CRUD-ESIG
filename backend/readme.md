@@ -9,7 +9,7 @@ Api rest desolvida com o framework laravel.
 -   php = "^7.1.3".
 -   laravel = "5.8.\*".
 -   postgres.
--   Composer.
+-   composer.
 
 ## Funcionalidades
 
@@ -21,7 +21,7 @@ Api rest desolvida com o framework laravel.
 
 Realize o clone do projeto (https://github.com/HandersonSilva/CRUD-ESIG.git).
 
-Crie um banco de dados no postgres e utilize o Arquivo .env.example para configura-lo no projeto;
+Crie um banco de dados no postgres e utilize o arquivo .env.example para configura-lo no projeto;
 
 ## Instalando dependencias;
 
