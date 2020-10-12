@@ -1,8 +1,8 @@
 {
-  "/index.php": {
-    "target": "https://crud-esig.herokuapp.com/index.php",
+  "/api/": {
+    "target": "http://seu_ip:8000/api",
     "pathRewrite": {
-      "^/index.php/": ""
+      "^/api": ""
     }
   }
 }

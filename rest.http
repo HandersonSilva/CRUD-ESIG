@@ -1,37 +1,33 @@
 ###
-//INDEX
-GET http://crud-esig.herokuapp.com/task
-
-###
-//GETLISTTASK done, unrealized, all
-GET http://crud-esig.herokuapp.com/task/all
+//LISTAR TASK Filtros(done, unrealized, all)
+GET http://crud-esig.herokuapp.com/api/task/all
 
 ###
 //CADASTRAR
-POST http://crud-esig.herokuapp.com/task
+POST http://crud-esig.herokuapp.com/api/task
 content-type: application/json
 
 {
-    "description":"teste 7",
+    "description":"Minha primeira tarefa",
     "done":false,
-    "filter":"unrealized"
+    "filter":"all"
 }
 
 ###
 //ATUALIZAR
-PUT http://crud-esig.herokuapp.com/task/12
+PUT http://crud-esig.herokuapp.com/api/task/12
 content-type: application/json
 
 {   
-    
-    "done":false,
-    "filtro":"done"
+    "description":"Minha primeira tarefa",
+    "done":true,
+    "filtro":"all"
 }
 
 ###
 //DELETAR
-DELETE http://crud-esig.herokuapp.com/task/8
+DELETE http://crud-esig.herokuapp.com/api/task/8
 
 ###
 //DELETAR CONCLUIDOS
-DELETE http://crud-esig.herokuapp.com/task-done
+DELETE http://crud-esig.herokuapp.com/api/task-done
