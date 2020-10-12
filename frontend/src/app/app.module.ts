@@ -18,7 +18,6 @@ import { MatDividerModule } from '@angular/material/divider';
 
 import { AppService } from './app.service';
 import { ErrorInterceptor } from 'src/auth/error.interceptor';
-import { ToastrModule } from 'ngx-toastr';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
