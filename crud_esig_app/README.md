@@ -12,8 +12,8 @@ Versão mobile do CRUD ESIG desenvolvido com Flutter.
 
 ## Funcionalidades
 
-- Cadastro de tarefas;
-- Edição das tarefas;
+- Cadastro de tarefa;
+- Edição de tarefa;
 - Listagem de tarefa por filtro;
 
 ### Dependencias;
