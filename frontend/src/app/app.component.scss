@@ -144,7 +144,6 @@ svg#clouds {
 }
 .content {
   .mat-card {
-    min-width: 560px;
     background: #fff;
     color: #555;
     form {
@@ -164,6 +163,7 @@ svg#clouds {
     margin: 5px;
     margin-top: -0.5em;
     button {
+      width: 100%;
       margin-right: 5px;
     }
   }

@@ -2,7 +2,14 @@
   <form name="form" [formGroup]="form" class="col-12">
     <h4 class="edit-title">Alterar Tarefa</h4>
     <mat-form-field class="col-12">
-      <input formControlName="description" matInput placeholder="" value="" />
+      <textarea
+        matInput
+        formControlName="description"
+        cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize"
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="8"
+      ></textarea>
     </mat-form-field>
     <div class="menu-filtro-edit">
       <button (click)="onCancel()" mat-stroked-button color="warn">
