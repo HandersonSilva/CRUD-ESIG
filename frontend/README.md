@@ -15,8 +15,8 @@ Frontend da aplicação desenvolvido em angular
 
 ## Funcionalidades
 
-- Cadastro de tarefas;
-- Edição das tarefas;
+- Cadastro de tarefa;
+- Edição de tarefa;
 - Listagem de tarefa por filtro;
 
 ### Instalando as dependencias;
@@ -48,7 +48,7 @@ Ajuste o arquivo do proxy CRUD-ESIG/frontend/proxy.config.json com o host do bac
 }
 ```
 
-Altere o camando start no arquivo CRUD-ESIG/frontend/package.json com o seu ip.
+Altere o comando start no arquivo CRUD-ESIG/frontend/package.json com o seu ip.
 
 ```js
  "start": "ng serve --host seu_ip --port 4200 --proxy-config proxy.config.json --base-href /app/",

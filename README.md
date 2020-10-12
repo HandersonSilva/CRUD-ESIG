@@ -2,33 +2,42 @@
 
 ## Sobre o projeto
 
-## Requesitos
+Desenvolver uma a aplicação web que permita cadastrar, atualizar e
+remover um registro (CRUD) , e exiba os registros em uma listagem semelhante ao
+exemplo informado no site.
+Acesse o link para ver o exemplo ​ : ​ http://todomvc.com/examples/angularjs/#/
 
-- php = "^7.1.3".
-- laravel = "5.8.\*".
-- postgres.
-- Composer.
+## Itens realizados
 
-## Funcionalidades
+- Criar uma aplicação web utilizando PHP usando o Framework Laravel
+- Utilizar persistência em um banco de dados Postegres SQL
+- Utilizar Eloquent ORM
+- Utilizar Bootstrap 4
+- Criar single page app utilizando VueJS, React ou Angular
+- Publicar projeto no heroku
+- Criar aplicativo mobile utilizando Flutter
 
-- Cadastro de tarefas;
-- Atualização das tarefas para concluídas;
-- Listagem de tarefa por filtro;
+## Itens não realizados
+
+- Utilizar Jquery UI
+- Utilizar Teste Unitarios com PHPUnit
+
+## Estrutura do projeto
+
+- [/backend](https://github.com/HandersonSilva/CRUD-ESIG/tree/main/backend) -> Alicação em Laravel
+- [/crud_esig_app](https://github.com/HandersonSilva/CRUD-ESIG/tree/main/crud_esig_app) -> Aplicação em Flutter
+- [/frontend](https://github.com/HandersonSilva/CRUD-ESIG/tree/main/frontend) -> Aplicação em angular
 
 ## Instalação
 
-Realize o clone do projeto (https://github.com/HandersonSilva/CRUD-ESIG.git).
+- [Documentação backend](https://github.com/HandersonSilva/CRUD-ESIG/blob/main/backend/readme.md)
+- [Documentação APP flutter](https://github.com/HandersonSilva/CRUD-ESIG/blob/main/crud_esig_app/README.md)
+- [Documentação frontend](https://github.com/HandersonSilva/CRUD-ESIG/blob/main/frontend/README.md)
 
-Crie um banco de dados no mysql e utilize o Arquivo .env.example para configura-lo no projeto;
+### Link do projeto no Heroku;
 
-### Instalando dependencias;
+[CRUD-ESIG-HEROKU](http://crud-esig.herokuapp.com/app/)
 
-- composer install
+### Teste API
 
-#### Criando as tabelas no banco
-
-- php artisan migrate
-
-## Funcionamento do projeto
-
-## CRUD TAREFAS finalizado.
+Instale a extensão "REST Client" no visual studio code e utilize o arquivo CRUD-ESIG/rest.http para testar as requisições.

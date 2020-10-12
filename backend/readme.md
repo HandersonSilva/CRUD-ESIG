@@ -37,7 +37,7 @@ Após ter configurado o banco rode o comando:
 
 ## Executando o projeto
 
-Execute o comando "php artisan serve" ou "php -S meu_ip:8000" no diretorio anterior a pasta backend.
+Execute o comando "php artisan serve"
 
 Se tudo ocorreu bem seu servidor estará online.
 
