@@ -25,7 +25,7 @@ Crie um banco de dados no postgres e utilize o arquivo .env.example para configu
 
 ## Instalando dependencias;
 
-dentro da pasta backend rode o seguinte comando:
+Dentro da pasta backend rode o seguinte comando:
 
 -   composer install
 
@@ -37,7 +37,7 @@ Após ter configurado o banco rode o comando:
 
 ## Executando o projeto
 
-rode o comando "php artisan serve" ou "php -S meu_ip:8000" no diretorio anterior a pasta backend.
+Execute o comando "php artisan serve" ou "php -S meu_ip:8000" no diretorio anterior a pasta backend.
 
 Se tudo ocorreu bem seu servidor estará online.
 
@@ -45,7 +45,7 @@ Se tudo ocorreu bem seu servidor estará online.
 
 ### Cadatrando uma tarefa
 
-Envie uma requisição para a rota
+Envie uma requisição para a rota passando so dados as serem cadastrados.
 
 ```http
 
@@ -62,7 +62,7 @@ content-type: application/json
 ### Listando as tarefas
 
 As tarefas serão listada de acordo com o filtro passado.
-Filtos disponiveis "all", "done" e "unrealized",
+Filtos disponiveis "all", "done" e "unrealized".
 
 ```http
 GET http://crud-esig.herokuapp.com/api/task/{filtro}
