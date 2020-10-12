@@ -45,7 +45,7 @@ Se tudo ocorreu bem seu servidor estará online.
 
 ### Cadatrando uma tarefa
 
-Envie uma requisição para a rota passando so dados as serem cadastrados.
+Envie uma requisição para a rota passando os dados as serem cadastrados.
 
 ```http
 
