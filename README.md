@@ -43,7 +43,7 @@ Acesse o link para ver o exemplo ​ : ​ http://todomvc.com/examples/angularjs
 
 [CRUD-ESIG-HEROKU](http://crud-esig.herokuapp.com/app/)
 
-### APK do aplicativo
+### APK
 [CRUP-APP-FLUTTER](https://github.com/HandersonSilva/CRUD-ESIG/raw/main/crud_esig_app/APK/crud-esig.apk)
 ### Teste API
 
