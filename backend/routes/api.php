@@ -11,6 +11,7 @@
 |
  */
 
+
 Route::get('/', function () {
     echo "ESIG-TESTE API";
 });

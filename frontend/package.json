@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 192.168.1.87 --port 4200 --proxy-config proxy.config.json --base-href /crud/",
-    "build": "node ./node_modules/@angular/cli/bin/ng build --base-href /crud/",
-    "build-prod": "node ./node_modules/@angular/cli/bin/ng build --base-href /crud/ --prod",
+    "start": "ng serve --host 192.168.1.87 --port 4200 --proxy-config proxy.config.json --base-href /app/",
+    "build": "node ./node_modules/@angular/cli/bin/ng build --base-href /app/",
+    "build-prod": "node ./node_modules/@angular/cli/bin/ng build --base-href /app/ --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

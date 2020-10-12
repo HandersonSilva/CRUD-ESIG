@@ -11,6 +11,9 @@
 |
 */
 
+// Route::get('/task/{filtro}', 'TaskController@getListTask');
 
-// Auth::routes();
+// Route::resource('/task', 'TaskController');
+
+// Route::delete('/task-done', 'TaskController@destroyTaskDone');
 
