@@ -16,6 +16,11 @@ Acesse o link para ver o exemplo ​ : ​ http://todomvc.com/examples/angularjs
 - Criar single page app utilizando VueJS, React ou Angular
 - Publicar projeto no heroku
 - Criar aplicativo mobile utilizando Flutter
+- Submeter código no github
+- ​Incluir no projeto um arquivo chamado ‘orientacoes’ ou no 'README.md' com
+  uma breve explicação do que foi feito, com os itens (as letras) que foram
+  implementadas e as instruções para execução em um ambiente local para que se
+  possa rodar o projeto
 
 ## Itens não realizados
 
