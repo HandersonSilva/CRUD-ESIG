@@ -2,7 +2,7 @@
 
 ## Sobre o projeto
 
-Api rest desolvida com o framework laravel.
+Api Rest desolvida com o Framework Laravel.
 
 ## Requesitos
 
