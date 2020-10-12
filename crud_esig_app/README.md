@@ -24,4 +24,4 @@ Versão mobile do CRUD ESIG desenvolvido com Flutter.
 
 ## Instalação
 
-Com o ambiente Flutter configurado faça o clone do projeto e rode o comando "flutter run"
+Com o ambiente Flutter configurado faça o clone do projeto e rode o comando "flutter run" dentro da pasta "crud_esig_app/"
