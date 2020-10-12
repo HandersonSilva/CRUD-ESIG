@@ -38,7 +38,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     FormsModule,
     ReactiveFormsModule,
     MatDividerModule,
-    ToastrModule.forRoot(),
     MatSnackBarModule,
   ],
   exports: [EditComponent],
