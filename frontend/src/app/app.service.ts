@@ -20,12 +20,6 @@ export class AppService {
       .map((res) => res);
   }
 
-  list(): Observable<Result> {
-    return this.httpClient
-      .get<Result>(`${AppConstantes.urlBaseApi}/task`)
-      .map((res) => res);
-  }
-
   listFilter(filter): Observable<Result> {
     return this.httpClient
       .get<Result>(`${AppConstantes.urlBaseApi}/task/${filter}`)

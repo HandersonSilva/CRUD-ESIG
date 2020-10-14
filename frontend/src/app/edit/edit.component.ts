@@ -21,8 +21,6 @@ export class EditComponent implements OnInit {
     private _dialogRef: MatDialogRef<EditComponent>,
     @Inject(MAT_DIALOG_DATA) data
   ) {
-    console.log('data');
-    console.log(data);
     if (data) {
       this.task = data;
     }
